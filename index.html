@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta property="og:title" content="Happy New Year ✨">
+<meta property="og:description" content="A small surprise for you 💫">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://riyansshh.github.io/New-year/">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Confession + Special 💖</title>
+<title>Happy New Year💖</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -29,11 +31,879 @@ body{
     position:relative;
 }
 
+body{
+    color:#f2f2f2; /* soft white for normal text */
+    font-family:"Shantell Sans", cursive;
+}
+    
 /* COMMON PAGE STYLE */
 .page{
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px 10px;
+    width:100%;
+    box-sizing:border-box;
+}
+
+.page-inner{
+    width:100%;
+    max-width:420px;
+    margin:0 auto;
+    text-align:center;
+    padding:10px;
+    box-sizing:border-box;
+}
+
+.text{
+    font-size:24px;
+    font-weight:800;
+    margin:5px 10px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0,6);
+}
+
+.wishesText{
+    font-size:20px;
+    line-height:28px;
+    margin:5px 10px;
+    font-weight:800;
+}
+
+.emoji{font-size:32px;margin:5px;}
+
+.letterSlideshow{
+    width:90%;
+    max-width:400px;
+    height:380px;
+    border-radius:20px;
+    overflow:hidden;
+    position:relative;
+    background:rgba(255,255,255,0.1);
+    margin: 20px auto;
+}
+
+.slide{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:10px;
+    text-align:center;
+    font-size:22px;
+    font-weight:800;
+    color:white;
+    opacity:0;
+    transition: opacity 0.5s;
+}
+
+.btn{
+    margin:10px;
+    padding:12px 28px;
+    background:#e94b8b;
+    color:white;
+    border:none;
+    border-radius:14px;
+    font-size:18px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.75);
+    backdrop-filter:blur(5px);
+    color:white;
+    z-index: 2;
+}
+
+.modal-content{
+    background: radial-gradient(circle at top,#3a0b1d,#000 70%);
+    border-radius:20px;
+    padding:20px;
+    width:80%;
+    max-width:320px;
+    margin:auto;
+    margin-top:35vh;
+}
+
+.close{
+    float:right;
+    font-size:26px;
+    cursor:pointer;
+}
+
+.confessionHeading{
+    font-size:28px;
+    font-weight:800;
+    margin:10px 0;
+}
+
+.confessionText{
+    max-height:70vh;
+    overflow-y:auto;
+    padding:12px;
+    margin:0;
+    text-align:left;
+    font-size:18px;
+    line-height:26px;
+    background: rgba(255,255,255,0.05);
+    border-radius:16px;
+    box-sizing:border-box;
+    width:90%;
+    max-width:400px;
+    font-weight: 600
+}
+
+.floating {
+    position: fixed;
+    z-index:999999;
+    font-size: 20px;
+    pointer-events: none;
+    user-select: none;
+    --r: 0deg; 
+    animation-name: floatUp;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh) scale(1) rotate(var(--r)); opacity:1; }
+    100% { transform: translateY(-10vh) scale(0.5) rotate(var(--r)); opacity:0; }
+}
+
+.page-special{
+    font-family: "Shantell Sans", "Shantell Sans Fallback", cursive;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.page-special .page-gif{
+    width: 80%;
+    max-width: 220px;
+    height: auto;
+    max-height: 40vh;
+    margin-bottom:15px;
+    border-radius:15px;
+}
+#lyrics-container{
+    font-size:36px;
+    min-height:60px;
+    white-space: pre-line;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+#line-gif{
+    width:180px;
+    margin:15px auto 0;
+    display:none;
+    animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@media(max-width:420px){
+    .text{font-size:20px;}
+    .wishesText{font-size:16px;}
+    .letterSlideshow{height:300px;}
+}
+/* ⭐ STAR BACKGROUND */
+.stars, .stars2, .stars3 {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.stars {
+    background:
+        radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+        radial-gradient(1px 1px at 120px 80px, #fff, transparent),
+        radial-gradient(1px 1px at 220px 150px, #fff, transparent),
+        radial-gradient(1px 1px at 300px 200px, #fff, transparent);
+    background-size: 300px 300px;
+    opacity: 0.4;
+    animation: starsMove 40s linear infinite;
+}
+
+.stars2 {
+    background:
+        radial-gradient(1px 1px at 60px 60px, #fff, transparent),
+        radial-gradient(1px 1px at 180px 120px, #fff, transparent),
+        radial-gradient(1px 1px at 260px 40px, #fff, transparent);
+    background-size: 400px 400px;
+    opacity: 0.6;
+    animation: starsMove 60s linear infinite;
+}
+
+.stars3 {
+    background:
+        radial-gradient(2px 2px at 140px 200px, #fff, transparent),
+        radial-gradient(2px 2px at 320px 100px, #fff, transparent);
+    background-size: 600px 600px;
+    opacity: 0.8;
+    animation: starsMove 90s linear infinite;
+}
+
+@keyframes starsMove {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-300px); }
+}
+
+.page, .page-special {
+    transition: transform 0.6s cubic-bezier(0.68,-0.55,0.27,1.55), opacity 0.6s ease;
+    transform: scale(1);
+    opacity: 1;
+}
+
+.hidden-bounce {
+    transform: scale(0.5);
+    opacity: 0;
+    pointer-events: none;
+}
+.fade-line{
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.confetti {
+    position: absolute;
+    font-size: 20px;
+    pointer-events: none;
+    user-select: none;
+    z-index: 9999;
+}
+/* ===== STAR TRAIL PARTICLES ===== */
+.star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 1;
+    box-shadow: 0 0 8px 3px white;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+/* ===== SILENT START ===== */
+#silentStart{
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at top,#12050c,#000 70%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    text-align: center;
+}
+
+#silentDot{
+    width: 14px;
+    height: 14px;
+    background: #ffb3c6;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #ff4d6d;
+    animation: pulse 2s ease-in-out infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes pulse{
+    0%{ transform: scale(1); opacity: 0.6; }
+    50%{ transform: scale(1.6); opacity: 1; }
+    100%{ transform: scale(1); opacity: 0.6; }
+}
+
+.silentText{
+    font-size: 22px;
+    opacity: 0;
+    animation: fadeSilent 1.5s ease forwards;
+}
+
+#silentLine1{ animation-delay: 0.5s; }
+#silentLine2{ animation-delay: 2s; }
+#silentLine3{ animation-delay: 3.5s; }
+
+#silentLine1{
+    color:#ffd6e0;  /* soft romantic pink */
+}
+
+#silentLine2{
+    color:#ffffff;  /* pure white, clear & serious */
+}
+
+#silentLine3{
+    color:#ff9ebb;  /* warm blush highlight */
+    text-shadow:0 0 6px rgba(255,150,180,0.6); /* subtle glow */
+}
+
+@keyframes fadeSilent{
+    from{ opacity:0; transform: translateY(10px); }
+    to{ opacity:1; transform: translateY(0); }
+    
+}
+#silentLine1{
+    color:#ffd6e0;  /* soft romantic pink */
+}
+
+#silentLine2{
+    color:#ffffff;  /* pure white, clear & serious */
+}
+
+#silentLine3{
+    color:#ff9ebb;  /* warm blush highlight */
+    text-shadow:0 0 6px rgba(255,150,180,0.6); /* subtle glow */
+}
+
+h1, h2, .confessionHeading{
+    color:#ff9ebb;  /* soft blush / accent color */
+    text-shadow: 0 0 4px rgba(255,150,180,0.5); /* subtle glow */
+}
+
+p, .confessionText, .wishesText{
+    color:#f2f2f2;  /* soft white for readability */
+    text-shadow: 0 0 2px rgba(0,0,0,0.4); /* subtle shadow for depth */
+}
+
+.lyrics, #lyrics-container, .specialText{
+    color:#fff0f5;  /* dreamy white/pink */
+    text-shadow: 0 0 8px rgba(255,170,200,0.4); /* soft glow */
+}
+
+button, .btn{
+    color:#ffffff;      /* clean white */
+    background:#e94b8b; /* soft romantic pink */
+    text-shadow:0 0 3px rgba(0,0,0,0.3);
+}
+
+.modal-content, #modal input{
+    color:#f2f2f2;
+}
+
+.floating, .confetti, .star{
+    color:#fff0f5;  /* dreamy soft pink / white */
+}
+
+</style>
+</head>
+<body>
+
+<div class="stars"></div>
+<div class="stars2"></div>
+<div class="stars3"></div>
+
+<!-- SILENT START -->
+<div id="silentStart" class="page page-special">
+    <div id="silentDot"></div>
+    <div class="silentText" id="silentLine1">finally it's the time ⌚👀</div>
+    <div class="silentText" id="silentLine2">wishing you a happiest new year 🌷💗</div>
+    <div class="silentText" id="silentLine3">i hope you will read till the end 😊✨.</div>
+    <div class="silentText" id="silentLine3"> lets gooo😶🤞🏻</div>
+</div>
+
+<!-- CONFESSION PAGE 1 -->
+<div id="page1" class="page">
+  <div class="page-inner">
+    <div class="text">Happy New Year, Mahi! 🎉</div>
+    <div class="wishesText">
+        Wishing you a year filled with joy, love, and endless smiles.
+        May all your dreams come true, and may you find happiness in every moment.
+        You are special, and I care about you deeply. Today on the event of new year
+        i just want to share something with you. 👉🏻👈🏻
+        Here's to new beginnings! 💖
+    </div>
+
+    <div class="emoji">🎊✨❤️🌟</div>
+
+    <div class="text">Hi… 💖</div>
+    <div class="text">Someone has something special to say...</div>
+
+    <div class="letterSlideshow">
+        <div class="slide">The Starting of 11th Class ❤️💖</div>
+        <div class="slide">The most beautiful day ☁️🌤️</div>
+        <div class="slide">2nd June 2024 🎉😊</div>
+        <div class="slide">A Ugly boy saw a Beautiful Girl 👦👧</div>
+        <div class="slide">A Kind Caring And Loving Girl 🌸💕</div>
+        <div class="slide">A Most beautiful Friendship For Me 🌟🤝</div>
+        <div class="slide">Is That Friendship Coming To an End? ❓😢</div>
+        <div class="slide">Or Is It Going To Become A New Starting? 🚀✨</div>
+        <div class="slide">Starting of Two lives Together?💑❤️</div>
+        <div class="slide">It Could Be The End But May Be A Starting Of A Journey! 👑🌍</div>
+    </div>
+
+    <button class="btn" onclick="openModal()">What I Mean?</button>
+  </div>
+</div>
+
+<!-- PASSWORD MODAL -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">×</span>
+        Enter Password 🔒<br><br>
+<input id="pass" type="text" placeholder="Enter date" 
+       style="padding:10px;width:90%; color:#000000; background:#fff0f5; border:none; border-radius:8px;" 
+       autocomplete="off"> 
+        <button class="btn" onclick="check()">Confirm</button><br>
+        Hint: the date a princess was born 👑
+    </div>
+</div>
+
+<!-- CONFESSION PAGE 2 -->
+<div id="page2" class="page" style="display:none;">
+  <div style="display:flex; flex-direction:column; align-items:center; width:90%; max-width:400px;">
+    <div class="confessionHeading">I MEAN THAT 💕</div>
+    <div class="confessionText">
+Previously I Asked You About Best Friend But Today On The Occasion Of New Year I Just Want You To Know Something And🫣❤.<Br><Br>
+You Know I Love Seeing You Smiling Every Day 😊.<Br><Br>
+Today, I Just Want To Tell You Everything And I Hope You're Reading This📖.<Br><Br>
+To Be Completely Honest, I’ve Had A Huge Crush On You For A Long Time, But I Was Too Afraid To Tell You 🫤❤️..<Br><Br>
+Imagine This: Someone Is Falling For You, Without Even Fully Understanding Why, And Yet They Find Themselves Thinking About You More Every Single Day 🫠.<Br><Br>
+I Realized My Feelings When Another Guy Said He Had A Crush On You—and I Felt Jealous (Even Though We Weren’t In A Relationship) 🙃🍀.<Br><Br>
+Not Gaining Sympathy But Watching Other Couples Going Temples,Holding Hands, Laughing Together, And Spending Time Together Always Make Me To Think Of You 🤔💭,<Br><Br>
+I Know I Might Not Be Your Type, But I Would Be So Happy If You Chose To Stay With Me 🤞🏻.<Br><Br>
+Unlike Other Boys Who Keep Asking For Uncomfortable Things... I Just Want To Ask About Your Day, Feelings, And Little Things Like That🐣✨<Br><Br>
+I Don’t Know Whether You Will Trust Me, But I Promise Your Trust Will Never Be Betrayed.🔒<Br><Br>
+In The Generation Of Nudes & S"X, I Just Want To Hold Your Handbag When You Feels Tired🫶<Br><Br>
+I Literally Keep Asking God For Your “yes,” Even Knowing You Might Not Feel The Same Way About Me . 🙆🏻‍♂️<Br>
+The Decision Is Entirely Yours— It's About Your Career, Your Life, Your Future🔮.<Br><Br>
+I Don't Know You Feel The Same Or Different, I Am Just Trying To Confess My Feelings In The Best Way I Can🙁🎀<Br><Br>
+I Want To Be With You Through Right And Wrong. I Want To Support You In Every Situation You Face. I Want To Live Every Single Moment With You, For You. I Want To Celebrate Your Achievements And Care For You During Challenges And Hard Times 🙎🏻‍♂️. <Br><Br>
+I Hope You've Read This Far😿.<Br><Br>
+~ A Heart Felt Message For Mahi From Riyansh 💌<Br><Br>
+Before You Reply, I Want To Tell You Something 😕: <Br><Br>
+I Can’t Take You Out For Treats At Domino’s, Mcdonald’s, Or Kfc 🍔🍟,🍔🍟,<Br><Br>
+But I Promise To Treat You Better Than Any Other Boy 😶‍🌫.<Br><Br>
+I Can’t Buy You Expensive Gifts 🎁,<Br><Br>
+But I Can Give You The Love, Trust, Care, And Loyalty You Truly Deserve 💖✨.<Br><Br>
+I Can’t Go To Malls With You Everyday🛍️,<Br><Br>
+But I Will Never Think To Undress You🌷 <Br><Br>
+Surely, We Will Never Go To Oyo Or Such Places 👤🧠.<Br><Br>
+But I Would Love To Visit Temples With You For Sure🕉️🌸.<Br><Br>
+I Will Never Get Bored Of You. No Matter Your Answer, I’ll Respect You And Be Grateful That I Was Honest.💖.<Br><Br>
+This Is My Heart Speaking 💌💞 — Even If You Disagree, I Will Respect Your Decision, But My Love For You Will Always Remain Same ❤️✨..<Br>
+
+
+Take Your Time— I'll Be Waiting For Your Reply On Instagram💟<Br><Br>
+
+Happy New Year! Enjoy Your Year, Keep Growing, Stay Blessed, And I'll Pray For Your 2026🎉💕    </div>
+    <button id="finalBtn" class="btn" onclick="startloading()">Something for you 💖✨</button>
+  </div>
+</div>
+
+<!-- LOADING PAGE -->
+<div id="loadingPage" class="page page-special" style="display:none;">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:15px;width:100%;max-width:300px;">
+        <div style="font-size:40px;">💗</div>
+
+        <div style="font-size:22px;text-align:center;">
+            Preparing something special for you…
+        </div>
+
+        <div style="width:100%;height:10px;background:rgba(255,255,255,0.3);border-radius:20px;overflow:hidden;">
+            <div id="loadFill" style="
+                height:100%;
+                width:0%;
+                background:linear-gradient(90deg,#ff4d6d,#ff85a1);
+                border-radius:20px;
+                transition:width 0.3s ease;">
+            </div>
+        </div>
+
+        <div id="loadPercent" style="font-size:18px;">0%</div>
+    </div>
+</div>
+
+<!-- SPECIAL PROJECT PAGES -->
+<div id="special1" class="page page-special" style="display:none;">
+    <div class="container">
+        <img src="hii.gif" class="page-gif">
+        <h1>Will you do me a favor, please</h1>
+        <p>Use headphones is must 🎧</p>
+        <button class="btn" onclick="fade(special1,special2)">Show me ♥</button>
+    </div>
+</div>
+
+<div id="special2" class="page page-special" style="display:none;">
+    <div class="container">
+        <img src="nervous.gif" class="page-gif">
+        <h1>I want to say something to you</h1>
+        <p>Just listen for a moment 🤍</p>
+        <button class="btn" onclick="startSpecial3()">Open it ♥</button>
+    </div>
+</div>
+
+<div id="special3" class="page page-special" style="display:none;">
+    <div class="container">
+        <div id="lyrics-container"></div>
+        <img id="line-gif">
+    </div>
+</div>
+
+<audio id="bgMusic" src="Love_story.mp3" loop></audio>
+<audio id="song" src="wanna_be_yours.mp3"></audio>
+<script>
+function startloading(){
+    bouncePage(document.getElementById('page2'), 
+    document.getElementById('loadingPage'));
+
+    let progress = 0;
+    const fill = document.getElementById("loadFill");
+    const percent = document.getElementById("loadPercent");
+
+    const interval = setInterval(() => {
+        progress++;
+        fill.style.width = progress + "%";
+        percent.innerText = progress + "%";
+
+        if(progress >= 100){
+            clearInterval(interval);
+            // Wait 2 seconds before moving to the next page
+            setTimeout(() => {
+                bouncePage(document.getElementById('loadingPage'),
+                document.getElementById('special1'));
+            }, 2000); // 2000ms = 2 seconds
+        }
+    }, 35); // controls speed of progress bar
+}
+</script>
+
+<script>
+// Step 1: Hide all slides initially
+document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll('.slide');
+    slides.forEach(slide => {
+        slide.style.opacity = 0; // hide all slides initially
+    });
+});
+</script>
+
+<script>
+function bouncePage(from, to) {
+    // shrink + fade current page
+    from.classList.add('hidden-bounce');
+
+    setTimeout(() => {
+        from.style.display = 'none';
+        from.classList.remove('hidden-bounce');
+
+        // show next page and pop in
+        to.style.display = 'flex';
+        to.classList.add('hidden-bounce'); // start small
+        setTimeout(() => {
+            to.classList.remove('hidden-bounce'); // pop animation
+        }, 10); // tiny delay triggers transition
+    }, 600); // match CSS transition duration
+}
+</script>
+<script>
+const confettiSymbols = ['🌷','✨','🎀','🌙','❤‍🩹'];
+
+function addConfettiEffect(btn){
+    btn.addEventListener('click', (e)=>{
+        const centerX = e.pageX; // page coordinates
+        const centerY = e.pageY;
+
+        for(let i=0; i<20; i++){
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.textContent = confettiSymbols[Math.floor(Math.random() * confettiSymbols.length)];
+
+            confetti.style.left = centerX + 'px';
+            confetti.style.top = centerY + 'px';
+            document.body.appendChild(confetti);
+
+            const angle = Math.random() * 2 * Math.PI;
+            const distance = 50 + Math.random() * 50;
+            const dx = Math.cos(angle) * distance;
+            const dy = Math.sin(angle) * distance;
+
+            confetti.animate([
+                { transform: 'translate(0,0) scale(1)', opacity: 1 },
+                { transform: `translate(${dx}px, ${dy}px) scale(1.5)`, opacity: 0 }
+            ], {
+                duration: 1000 + Math.random() * 500,
+                easing: 'ease-out',
+                fill: 'forwards'
+            });
+
+            setTimeout(()=> confetti.remove(), 1500);
+        }
+    });
+}
+
+// Apply to all buttons
+document.querySelectorAll('button').forEach(addConfettiEffect);
+</script>
+
+<script>
+
+function openModal() {
+    // Play hidden music first
+    const bgMusic = document.getElementById('bgMusic');
+    if (bgMusic.paused) {
+        bgMusic.play().catch(e => console.log('Autoplay blocked'));
+    }
+
+    // Then show modal
+    document.getElementById('modal').style.display = 'block';
+}
+function closeModal(){document.getElementById('modal').style.display='none';}
+
+function check(){
+    if(document.getElementById('pass').value.trim().toLowerCase()==='27 may 2007'){
+        bouncePage(document.getElementById('page1'), 
+        document.getElementById('page2'));
+        closeModal();
+    } else {
+        showWrongPopup();
+    }
+}
+
+// Show wrong password modal
+function showWrongPopup(){
+    document.getElementById('wrongPassPopup').style.display = 'block';
+}
+
+// Close wrong password modal
+function closeWrongPopup(){
+    document.getElementById('wrongPassPopup').style.display = 'none';
+}
+
+// Slideshow JS
+const slides = document.querySelectorAll('.slide');
+let currentSlide = 0;
+function showSlide(index){ slides.forEach((s,i)=> s.style.opacity = i===index?'1':'0'); }
+function nextSlide(){ currentSlide = (currentSlide+1)%slides.length; showSlide(currentSlide); }
+showSlide(currentSlide);
+setInterval(nextSlide,2500);
+
+// Floating hearts/stars/flowers
+const symbols=["💗","🧿","🌸","🫀","🦋"];
+function createFloating(){
+    const span=document.createElement("span");
+    span.className="floating";
+    span.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    span.style.setProperty('--r' , Math.random()*360 + 'deg');
+    span.style.top = "0px"
+    span.style.left=Math.random()*100+"vw";
+    span.style.fontSize=(15+Math.random()*25)+"px";
+    span.style.animationDuration=(5+Math.random()*5)+"s";
+    document.body.appendChild(span);
+    setTimeout(()=>{ span.remove(); },10000);
+}
+setInterval(createFloating,1200);
+
+// SPECIAL PROJECT SCRIPT
+function fade(from,to){
+    from.style.opacity=1;
+    to.style.opacity=0;
+    to.style.display='flex';
+    setTimeout(()=>{
+        from.style.opacity=0;
+        to.style.opacity=1;
+        setTimeout(()=>{from.style.display='none';},500);
+    },50);
+}
+
+const song=document.getElementById("song");
+const lyricsBox=document.getElementById("lyrics-container");
+const gif=document.getElementById("line-gif");
+
+const lyrics=[
+ {time:0, text:"At Least As Pacific The Ocean Is Now🌊❤", gif:"pacific.gif"},
+ {time:3, text:"I Wanna Be Yours🙈💕", gif:"wanna.gif"},
+ {time:7.50, text:"Secrets I Have Held In My Heart🌖🫀", gif:"secrets.gif"},
+ {time:10.50, text:"Are Harder To Hide Than I Thought🫠💗", gif:"harder.gif"},
+ {time:14.70, text:"Maybe I Just Wanna Be Yours🤭👀", gif:"wohh.gif"},
+ {time:17, text:"I Wanna Be Yours🦋🧿", gif:"nervous.gif"}, 
+ {time:19, text:"I Wanna Be Yours✨🌷", gif:"yours.gif"}, 
+ {time:22, text:"Will You Make Me Yours?🫣❤", gif:"kho-jau.gif"}
+];
+
+function showSpecialPage1(){
+    document.getElementById('page2').style.display='none';
+    document.getElementById('special1').style.display='flex';
+}
+
+function fadeOutAudio(audio, duration = 1000){
+    const step = 50; // time in ms between volume reductions
+    const volumeStep = audio.volume / (duration / step);
+
+    const fade = setInterval(() => {
+        if(audio.volume - volumeStep > 0){
+            audio.volume -= volumeStep;
+        } else {
+            audio.volume = 0;
+            audio.pause();        // stop music
+            audio.currentTime = 0; // reset for next play
+            audio.volume = 1;     // reset volume for next time
+            clearInterval(fade);
+        }
+    }, step);
+}
+
+function startSpecial3(){
+    const bgMusic = document.getElementById('bgMusic');
+    const song = document.getElementById('song');
+
+    // 1️⃣ Fade out the first music
+    fadeOutAudio(bgMusic, 1500); // 1.5 seconds fade out
+
+    // 2️⃣ Show special page 3
+    fade(special2, special3);
+
+    // 3️⃣ Fade in the second music
+    fadeInAudio(song, 1500); // 1.5 seconds fade in
+
+    // 4️⃣ Start lyrics sync
+    let i = 0;
+    function sync(){
+        let t = song.currentTime;
+        if(i < lyrics.length && t >= lyrics[i].time){
+            lyricsBox.innerHTML = "";
+            const line = document.createElement("div");
+            line.className = "fade-line";
+            line.textContent = lyrics[i].text;
+            lyricsBox.appendChild(line);
+
+            if(lyrics[i].gif){ 
+                gif.src = lyrics[i].gif; 
+                gif.style.display = "block"; 
+            } else { 
+                gif.style.display = "none"; 
+            }
+            i++;
+        }
+        requestAnimationFrame(sync);
+    }
+    sync();
+}
+</script>
+
+<script>
+// ===== FIXED STAR TRAIL =====
+let activePointers = new Set();
+
+// Track mouse
+document.addEventListener('mousemove', e => {
+    activePointers.add('mouse');
+    for (let i = 0; i < 5; i++) {
+    spawnStar(e.pageX, e.pageY);
+    }
+});
+
+document.addEventListener('mouseleave', () => {
+    activePointers.delete('mouse');
+});
+
+// Track touch
+document.addEventListener('touchmove', e => {
+    for (let t = 0; t < e.touches.length; t++) {
+    for (let i = 0; i < 5; i++) {
+        spawnStar(e.touches[t].pageX, e.touches[t].pageY);
+        }
+    }
+});
+
+document.addEventListener('touchend', e => {
+    if (e.touches.length === 0) activePointers.clear();
+});
+
+// Create single star
+function spawnStar(x, y) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    const size = 2 + Math.random() * 4;
+    star.style.width = star.style.height = size + 'px';
+    star.style.left = (x + (Math.random() * 30 - 15)) + 'px';
+    star.style.top = (y + (Math.random() * 30 - 15)) + 'px';
+    document.body.appendChild(star);
+
+    // Animate and remove quickly
+    requestAnimationFrame(() => {
+        star.style.transform = 'scale(2)';
+        star.style.opacity = 0;
+    });
+
+    setTimeout(() => star.remove(), 300); // stars disappear quickly
+}
+</script>
+
+<script>
+window.addEventListener("load", () => {
+    const silent = document.getElementById("silentStart");
+    const page1 = document.getElementById("page1");
+
+    page1.style.display = "none";
+
+    setTimeout(() => {
+        silent.classList.add("hidden-bounce");
+
+        setTimeout(() => {
+            silent.style.display = "none";
+            page1.style.display = "flex";
+
+            // Step 2: Start slideshow after silent page
+            startSlideshow();
+
+        }, 600);
+
+    }, 6000);
+});
+</script>
+
+<!-- WRONG PASSWORD POPUP -->
+<div id="wrongPassPopup" class="modal">
+    <div class="modal-content">
+        <span class="closePopup" onclick="closeWrongPopup()">😅</span>
+        <h2 style="color:#ff6b81;">Oops! ❌</h2>
+        <p style="color:#fff;">Your entered password is not correct. <br> remember a beautiful girl's birthday 😉✨</p>
+        <button class="btn" onclick="closeWrongPopup()">Close</button>
+    </div>
+</div>
+<script>
+function fadeInAudio(audio, duration = 1500){
+    audio.volume = 0;  // start from silent
+    audio.play();
+    const step = 50; // interval in ms
+    const volumeStep = 1 / (duration / step); // target volume is 1
+
+    const fade = setInterval(() => {
+        if(audio.volume + volumeStep < 1){
+            audio.volume += volumeStep;
+        } else {
+            audio.volume = 1;
+            clearInterval(fade);
+        }
+    }, step);
+}
+</script>
+</body>
+</html>
+
     min-height: 100vh;
     padding: 20px 10px;
     width:100%;
@@ -709,4 +1579,5 @@ function spawnStar(x, y) {
 
 </body>
 </html>
+
 
